@@ -16,24 +16,26 @@ const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
 
   return (
     //on form submit handle add
-    <form
-      className="input"
-      onSubmit={(e) => {
-        handleAdd(e);
-        //remove visual focus blur after submit
-        inputRef.current?.blur();
-      }}
-    >
-      <input
-        ref={inputRef}
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        type="input"
-        placeholder="enter a task"
-        className="input-box"
-      ></input>
-      <button className="input-submit">Add</button>
-    </form>
+    <div>
+      <form
+        className="input"
+        onSubmit={(e) => {
+          handleAdd(e);
+          //remove visual focus blur after submit
+          inputRef.current?.blur();
+        }}
+      >
+        <input
+          ref={inputRef}
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+          type="input"
+          placeholder="enter a task"
+          className="input-box"
+        ></input>
+        <button className="input-submit">Add</button>
+      </form>
+    </div>
   );
 };
 
