@@ -1,5 +1,6 @@
-.input {
+.input__form {
   display: flex;
+  flex-direction: row;
   width: 90%;
   position: relative;
   align-items: center;
@@ -86,7 +87,7 @@
 }
 
 @media (max-width: 700px) {
-  .input {
+  .input__form {
     width: 95%;
   }
   .todos {

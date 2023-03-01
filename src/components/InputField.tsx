@@ -17,7 +17,7 @@ const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
   return (
     //on form submit handle add
     <form
-      className="input"
+      className="input__form"
       onSubmit={(e) => {
         handleAdd(e);
         //remove visual focus blur after submit
