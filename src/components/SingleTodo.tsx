@@ -13,9 +13,23 @@ type Props = {
 };
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
+  const handleDone = (id: number) => {
+    // map through todos to find matching id and toggle isDone
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   return (
     <form className="todos-single">
-      <span className="todos-single-text">{todo.todo}</span>
+      {/* if todo is done, return strikethrough, else return regular todo */}
+      {todo.isDone ? (
+        <s className="todos-single-text">{todo.todo}</s>
+      ) : (
+        <span className="todos-single-text">{todo.todo}</span>
+      )}
       {/* add icons from react icons library */}
       <div>
         <span className="icon">
@@ -24,7 +38,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         <span className="icon">
           <AiFillDelete />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDone(todo.id)}>
           <MdDone />
         </span>
       </div>
