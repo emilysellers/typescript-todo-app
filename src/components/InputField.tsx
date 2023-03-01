@@ -30,9 +30,9 @@ const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
         onChange={(e) => setTodo(e.target.value)}
         type="input"
         placeholder="enter a task"
-        className="input-box"
+        className="input__box"
       ></input>
-      <button className="input-submit">Add</button>
+      <button className="input__submit">Add</button>
     </form>
   );
 };

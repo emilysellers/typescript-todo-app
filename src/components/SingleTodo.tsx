@@ -46,19 +46,19 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   }, [edit]);
 
   return (
-    <form className="todos-single" onSubmit={(e) => handleEdit(e, todo.id)}>
+    <form className="todos__single" onSubmit={(e) => handleEdit(e, todo.id)}>
       {/* add conditional input  */}
       {edit ? (
         <input
           ref={inputRef}
           value={editTodo}
           onChange={(e) => setEditTodo(e.target.value)}
-          className="todos-single-text"
+          className="todos__single--text"
         />
       ) : todo.isDone ? (
-        <s className="todos-single-text">{todo.todo}</s>
+        <s className="todos__single--text">{todo.todo}</s>
       ) : (
-        <span className="todos-single-text">{todo.todo}</span>
+        <span className="todos__single--text">{todo.todo}</span>
       )}
       {/* if todo is done, return strikethrough, else return regular todo */}
       {/* add icons from react icons library */}
