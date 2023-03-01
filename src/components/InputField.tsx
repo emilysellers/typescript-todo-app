@@ -1,15 +1,19 @@
 import React from "react";
 import "./styles.css";
 
+//include types of all props
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: (e: React.FormEvent) => void;
 }
 
-// const InputField = ({ todo, setTodo }: Props) => {    // alt syntax
-const InputField: React.FC<Props> = ({ todo, setTodo }) => {
+//set type of function, include Props
+// const InputField = ({ todo, setTodo }: Props) => {    // this is an alternate syntax for following line
+const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
   return (
-    <form className="input">
+    //on form submit handle add
+    <form className="input" onSubmit={handleAdd}>
       <input
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
