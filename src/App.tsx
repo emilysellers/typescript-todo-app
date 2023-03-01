@@ -1,4 +1,3 @@
-import { log } from "console";
 import React, { useState } from "react";
 import "./App.css";
 import InputField from "./components/InputField";
@@ -21,8 +20,6 @@ const App: React.FC = () => {
     //clear input
     setTodo("");
   };
-
-  console.log(todos);
 
   return (
     <div className="App">
