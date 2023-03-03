@@ -121,3 +121,15 @@
 .completed {
   background-color: rgb(190, 170, 44);
 }
+
+.dragactive {
+  background-color: rgb(251, 163, 123);
+}
+
+.dragcomplete {
+  background-color: rgb(226, 203, 53);
+}
+
+.dragging {
+  box-shadow: 0 0 20px black;
+}

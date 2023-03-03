@@ -22,9 +22,9 @@ const TodoList: React.FC<Props> = ({
       {/* wrap in Droppable and provide ID */}
       <Droppable droppableId="ActiveTodosList">
         {/* START AGAIN HERE callback function */}
-        {(provided: any) => (
+        {(provided: any, snapshot: any) => (
           <div
-            className="todos"
+            className={`todos ${snapshot.isDraggingOver ? "dragactive" : ""}`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
@@ -43,9 +43,12 @@ const TodoList: React.FC<Props> = ({
         )}
       </Droppable>
       <Droppable droppableId="TodosComplete">
-        {(provided: any) => (
+        {(provided: any, snapshot: any) => (
           <div
-            className="todos completed"
+            //template literal className for adding glow up when dragging
+            className={`todos completed ${
+              snapshot.isDraggingOver ? "dragcomplete" : ""
+            }`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
