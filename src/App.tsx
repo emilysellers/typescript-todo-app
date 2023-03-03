@@ -25,7 +25,35 @@ const App: React.FC = () => {
   };
 
   const onDragEnd = (result: any) => {
-    console.log(result);
+    const { source, destination } = result;
+    //if no destination, do nothing
+    if (!destination) return;
+    //if dropping it back in original location, do nothing
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+    let add,
+      active = todos,
+      complete = completedTodos;
+
+    if (source.droppableId === "ActiveTodosList") {
+      add = active[source.index];
+      active.splice(source.index, 1);
+    } else {
+      add = complete[source.index];
+      complete.splice(source.index);
+    }
+
+    if (destination.droppableId === "ActiveTodosList") {
+      active.splice(destination.index, 0, add);
+    } else {
+      complete.splice(destination.index, 0, add);
+    }
+
+    setCompletedTodos(complete);
+    setTodos(active);
   };
 
   return (
