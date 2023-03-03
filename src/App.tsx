@@ -3,7 +3,7 @@ import "./App.css";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
 import { Todo } from "./models";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 
 const App: React.FC = () => {
   //set types for state
