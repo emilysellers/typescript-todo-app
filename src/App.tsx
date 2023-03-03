@@ -34,10 +34,11 @@ const App: React.FC = () => {
       destination.index === source.index
     )
       return;
+
     let add,
       active = todos,
       complete = completedTodos;
-
+    //if dragged from active, remove from active, else remove from complete
     if (source.droppableId === "ActiveTodosList") {
       add = active[source.index];
       active.splice(source.index, 1);
@@ -45,13 +46,13 @@ const App: React.FC = () => {
       add = complete[source.index];
       complete.splice(source.index);
     }
-
+    //if dropped in active, add to active, else add to complete
     if (destination.droppableId === "ActiveTodosList") {
       active.splice(destination.index, 0, add);
     } else {
       complete.splice(destination.index, 0, add);
     }
-
+    //update state
     setCompletedTodos(complete);
     setTodos(active);
   };
